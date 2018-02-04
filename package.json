@@ -1,0 +1,20 @@
+{
+  "name": "empire-zero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/pdeblanc/empire-zero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/pdeblanc/empire-zero#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
