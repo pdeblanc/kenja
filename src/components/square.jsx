@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default Square = () => (
+export default () => (
   <div>
     Test Component.
   </div>
-)
+);
