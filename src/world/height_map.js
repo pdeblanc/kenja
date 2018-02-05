@@ -5,7 +5,7 @@ import Cache from '../struct/cache';
 const root2 = Math.pow(2, 0.5);
 
 export default class HeightMap extends Cache {
-  constructor({mean=0, sd=1, scale=65536, speed=1}) {
+  constructor({mean=0, sd=1, scale=65536, speed=1}={}) {
     super();
     this.mean = mean;
     this.sd = sd;
@@ -28,7 +28,10 @@ export default class HeightMap extends Cache {
   }
 
   parents(x, y) {
-    const divisor = Math.min(x & -x, y & -y); // power of 2 dividing x and y
+    const divisor = Math.min(
+      x === 0 ? this.scale : x & -x,
+      y === 0 ? this.scale : y & -y,
+    ); // power of 2 dividing x and y
     if ((x + y) % (2 * divisor))
       return {
         points: [

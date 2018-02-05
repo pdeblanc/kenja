@@ -1,6 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import Square from './components/square.jsx';
+import Viewport from './components/viewport.jsx';
+import biomes from './defs/biomes';
+import Plane from './world/plane';
 
-render(<Square />, document.getElementById('main'));
+const plane = new Plane(biomes);
+
+render(<Viewport plane={plane} />, document.getElementById('main'));

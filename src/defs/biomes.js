@@ -1,6 +1,6 @@
-import {Biome} from '../world/biome.js';
+import Biome from '../world/biome.js';
 
-export const biomes = [
-  Biome('grass', 'G', ({height}) => -height),
-  Biome('water', 'W', ({height}) => height),
+export default [
+  new Biome('grass', '草', ({height}) => -height),
+  new Biome('water', '水', ({height}) => height),
 ];

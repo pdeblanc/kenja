@@ -13,3 +13,11 @@ export const min = (arr, f) => {
   }
   return xMin;
 };
+
+export const rangeMap = (start, stop, fn) => {
+  const result = [];
+  for (let i = start; i < stop; i++) {
+    result.push(fn(i));
+  }
+  return result;
+};

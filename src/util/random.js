@@ -1,4 +1,4 @@
-import 'min' from './array';
+import {min} from './array';
 
 // log of a random variable following Gamma(1, 1) distribution
 export const logOfGamma11 = () => Math.log(-Math.log(1 - Math.random()));
