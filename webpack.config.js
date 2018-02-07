@@ -15,5 +15,9 @@ module.exports = {
         }
       }
     ]
+  },
+  devServer: {
+    publicPath: '/static',
+    port: 8080
   }
 };
