@@ -1,7 +1,12 @@
 .biome {
+  cursor: pointer;
   font-size: 1px;
   text {
     text-anchor: middle;
+  }
+  &:hover rect {
+    stroke: white;
+    stroke-width: 0.04;
   }
 }
 
