@@ -1,10 +1,23 @@
+.biome {
+  font-size: 1px;
+  text {
+    text-anchor: middle;
+  }
+}
+
 .grass {
+  rect {
+    fill: darkgreen;
+  }
   text {
     fill: green;
   }
 }
 
 .water {
+  rect {
+    fill: darkblue;
+  }
   text {
     fill: blue;
   }
