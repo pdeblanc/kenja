@@ -6,11 +6,13 @@ export default class Plane extends Cache {
   constructor(biomes) {
     super();
     this.heightMap = new HeightMap();
+    this.temperatureMap = new HeightMap();
     this.biomes = biomes;
   }
 
   generate(x, y) {
     const height = this.heightMap.get(x, y);
-    return dobbins(this.biomes, biome => biome.energy({height}));
+    const temperature = this.temperatureMap.get(x, y);
+    return dobbins(this.biomes, biome => biome.energy({height, temperature}));
   }
 }
