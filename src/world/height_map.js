@@ -1,12 +1,15 @@
 import {rnorm} from 'randgen';
+
+import {soranzoEpureSample} from '../util/random';
 import {sum} from '../util/array';
 import Cache from '../struct/cache';
 
 const root2 = Math.pow(2, 0.5);
 
 export default class HeightMap extends Cache {
-  constructor({mean=0, sd=1, scale=65536, speed=1}={}) {
+  constructor({seedInt=0, mean=0, sd=1, scale=65536, speed=1}={}) {
     super();
+    this.seedInt = seedInt;
     this.mean = mean;
     this.sd = sd;
     this.scale = scale;
@@ -16,15 +19,19 @@ export default class HeightMap extends Cache {
 
   generate(x, y) {
     if (x % this.scale === 0 && y % this.scale === 0) {
-      return rnorm(this.mean, this.sd);
+      return this.mean + this.sd * this.gauss(x, y);
     }
     const {points, distance} = this.parents(x, y);
     const parentMean = sum(points.map(coord => this.get(...coord)));
     const noiseVariance = this.speed * distance;
-    const noisedSample = rnorm(parentMean, Math.pow(noiseVariance, 0.5));
+    const noisedSample = parentMean + this.gauss(x, y) * noiseVariance ** 0.5;
     // prior sd of noised sample is (4 * this.variance + noiseVariance) ** 0.5
     const multiplier = this.sd / Math.pow(4 * this.variance + noiseVariance, 0.5);
     return noisedSample * multiplier;
+  }
+
+  gauss(x, y) {
+    return soranzoEpureSample(x + ' ' + y, this.seedInt);
   }
 
   parents(x, y) {

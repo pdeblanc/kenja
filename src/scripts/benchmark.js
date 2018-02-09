@@ -6,7 +6,12 @@ import sha256 from 'hash.js/lib/hash/sha/256';
 import sha512 from 'hash.js/lib/hash/sha/512';
 import gaussian from 'gaussian';
 import {rnorm} from 'randgen';
-import {soranzoEpureCdf, soranzoEpurePpf} from '../util/random';
+import {
+  soranzoEpureCdf,
+  soranzoEpurePpf,
+  soranzoEpureSample,
+  soranzoEpureSample2
+} from '../util/random';
 
 function benchmark(name, callback, calls=1000000) {
   const startTime = Date.now();
@@ -27,6 +32,7 @@ benchmark('standardGaussian.cdf', () => standardGaussian.cdf(2));
 benchmark('standardGaussian.ppf', () => standardGaussian.ppf(0.95));
 benchmark('soranzoEpureCdf', () => soranzoEpureCdf(2));
 benchmark('soranzoEpurePpf', () => soranzoEpurePpf(0.95));
+benchmark('soranzoEpureSample', () => soranzoEpureSample('foo', 1234));
 benchmark('rnorm', () => rnorm(0, 1));
 benchmark('md5', () => md5('foo'), 10000);
 benchmark('sha1', () => sha1().update('abc').digest('hex'), 10000);

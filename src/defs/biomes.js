@@ -9,6 +9,6 @@ export default [
       x === 0 ? 1024 : x & -x,
       y === 0 ? 1024 : y & -y,
     ); // power of 2 dividing x or y
-    return -Math.log(divisor);
+    return 10 - Math.log(divisor);
   })
 ];
