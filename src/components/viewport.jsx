@@ -40,7 +40,7 @@ class Foo extends React.Component {
 Foo.defaultProps = {
   x: 10,
   y: 10,
-  radius: 4
+  radius: 20
 };
 
 export default Foo;
