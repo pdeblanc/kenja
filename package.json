@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack-dev-server",
     "webpack": "webpack",
     "benchmark": "babel-node src/scripts/benchmark.js"
@@ -24,6 +24,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
+    "jest": "^22.2.2",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
