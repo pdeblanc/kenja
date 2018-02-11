@@ -7,27 +7,26 @@ import Cache from '../struct/cache';
 const root2 = Math.pow(2, 0.5);
 
 export default class HeightMap extends Cache {
-  constructor({seedInt=0, mean=0, sd=1, scale=65536, speed=1}={}) {
+  constructor({seedInt=0, scale=65536, speed=0.5}={}) {
     super();
     this.seedInt = seedInt;
-    this.mean = mean;
-    this.sd = sd;
     this.scale = scale;
     this.speed = speed;
-    this.variance = Math.pow(this.sd, 2);
+    this.decayRate = this.speed / 2; // this is probably incorrect
   }
 
   generate(x, y) {
     if (x % this.scale === 0 && y % this.scale === 0) {
-      return this.mean + this.sd * this.gauss(x, y);
+      return this.gauss(x, y);
     }
     const {points, distance} = this.parents(x, y);
     const parentMean = sum(points.map(coord => this.get(...coord)));
-    const noiseVariance = this.speed * distance;
-    const noisedSample = parentMean + this.gauss(x, y) * noiseVariance ** 0.5;
-    // prior sd of noised sample is (4 * this.variance + noiseVariance) ** 0.5
-    const multiplier = this.sd / Math.pow(4 * this.variance + noiseVariance, 0.5);
-    return noisedSample * multiplier;
+    const decayedMean = parentMean * Math.exp(-this.decayRate * distance);
+    const noiseVariance = (
+      this.speed / this.decayRate
+      * (1 - Math.exp(-this.decayRate * distance))
+    );
+    return decayedMean + this.gauss(x, y) * noiseVariance ** 0.5;
   }
 
   gauss(x, y) {
