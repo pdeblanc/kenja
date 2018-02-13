@@ -3,7 +3,7 @@ import React from 'react';
 import Square from './square.jsx';
 import {rangeMap} from '../util/array';
 
-class Foo extends React.Component {
+class Viewport extends React.Component {
   constructor(props) {
     super(props);
     const {x, y} = this.props;
@@ -37,10 +37,10 @@ class Foo extends React.Component {
   }
 }
 
-Foo.defaultProps = {
+Viewport.defaultProps = {
   x: 10,
   y: 10,
   radius: 9
 };
 
-export default Foo;
+export default Viewport;

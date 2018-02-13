@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({x, y, biome, click}) => (
+const Square = ({x, y, biome, click}) => (
   <svg
     className={'biome ' + biome.name}
     x={x - 0.5}
@@ -14,3 +14,5 @@ export default ({x, y, biome, click}) => (
     <text y="0.37">{biome.symbol}</text>
   </svg>
 );
+
+export default Square;
