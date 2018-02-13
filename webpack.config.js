@@ -24,6 +24,7 @@ module.exports = {
       }
     ]
   },
+  devtool: 'eval-source-map',
   devServer: {
     publicPath: '/static',
     port: 8080
