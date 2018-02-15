@@ -6,13 +6,10 @@ import {rangeMap} from '../util/array';
 class Viewport extends React.Component {
   constructor(props) {
     super(props);
-    const {x, y} = this.props;
-    this.state = {x, y};
   }
 
   render() {
-    const {x, y} = this.state;
-    const {plane, radius} = this.props;
+    const {plane, radius, translate, x, y} = this.props;
     return <div>
       <svg
         width='100%'
@@ -27,7 +24,7 @@ class Viewport extends React.Component {
                 x={u}
                 y={v}
                 biome={plane.get(x + u, y + v)}
-                click={() => this.setState({x: x + u, y: y + v})}
+                click={() => translate(u, v)}
               />
             )
           )
