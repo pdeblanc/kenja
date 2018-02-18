@@ -37,7 +37,7 @@ class Viewport extends React.Component {
 Viewport.defaultProps = {
   x: 10,
   y: 10,
-  radius: 9
+  radius: 29
 };
 
 export default Viewport;

@@ -7,17 +7,21 @@ export default class Plane extends Cache {
     super();
     this.heightMap = new HeightMap({seedInt: 0});
     this.temperatureMap = new HeightMap({seedInt: 1});
+    this.precipitationMap = new HeightMap({seedInt: 2});
     this.biomes = biomes;
   }
 
   generate(x, y) {
     const height = this.heightMap.get(x, y);
     const temperature = this.temperatureMap.get(x, y);
+    const precipitation = this.precipitationMap.get(x, y);
     return dobbins(
       this.biomes,
-      biome => biome.energy({height, temperature, x, y}),
+      biome => biome.energy(
+        {height, precipitation, temperature, x, y}
+      ),
       biome => [biome.name, x, y].join(' '),
-      2
+      3
     );
   }
 }
