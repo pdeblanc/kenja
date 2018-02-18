@@ -43,10 +43,4 @@ Viewport.propTypes = {
   translate: PropTypes.func.isRequired,
 };
 
-Viewport.defaultProps = {
-  x: 10,
-  y: 10,
-  radius: 29
-};
-
 export default Viewport;

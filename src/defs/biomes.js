@@ -1,7 +1,9 @@
 import Biome from '../world/biome.js';
 
 export default [
-  new Biome('grass', '草', ({height, temperature}) => -height + temperature ** 2 - 3),
+  new Biome('grass', '草', (
+    {height, temperature}) => -height + temperature ** 2 - 3
+  ),
   new Biome('woods', '林', ({height, temperature, precipitation}) =>
     -height + (temperature ** 2) - precipitation
   ),

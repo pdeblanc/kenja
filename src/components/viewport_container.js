@@ -4,8 +4,8 @@ import Viewport from './viewport.jsx';
 import {translate} from '../actions/view';
 
 const props = (state, ownProps) => {
-  const {x, y} = state.view;
-  return Object.assign({x, y, translate}, ownProps);
+  const {x, y, radius} = state.view;
+  return Object.assign({x, y, radius, translate}, ownProps);
 };
 
 const dispatch = {translate};
