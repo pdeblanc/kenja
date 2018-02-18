@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Square from './square.jsx';
 import {rangeMap} from '../util/array';
@@ -33,6 +34,14 @@ class Viewport extends React.Component {
     </div>
   }
 }
+
+Viewport.propTypes = {
+  plane: PropTypes.object.isRequired,
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+  radius: PropTypes.number.isRequired,
+  translate: PropTypes.func.isRequired,
+};
 
 Viewport.defaultProps = {
   x: 10,

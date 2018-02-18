@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Square = ({x, y, biome, click}) => (
   <svg
@@ -14,5 +15,12 @@ const Square = ({x, y, biome, click}) => (
     <text y="0.37">{biome.symbol}</text>
   </svg>
 );
+
+Square.propTypes = {
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
+  biome: PropTypes.object.isRequired,
+  click: PropTypes.func.isRequired,
+}
 
 export default Square;
