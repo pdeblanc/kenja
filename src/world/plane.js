@@ -5,9 +5,9 @@ import {dobbins} from '../util/random';
 export default class Plane extends Cache {
   constructor(biomes) {
     super();
-    this.heightMap = new HeightMap({seedInt: 0});
-    this.temperatureMap = new HeightMap({seedInt: 1});
-    this.precipitationMap = new HeightMap({seedInt: 2});
+    this.heightMap = new HeightMap({seedInt: 0, sd: 10});
+    this.temperatureMap = new HeightMap({seedInt: 1, sd: 10});
+    this.precipitationMap = new HeightMap({seedInt: 2, sd: 5});
     this.biomes = biomes;
   }
 
