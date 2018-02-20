@@ -21,11 +21,11 @@ class Viewport extends React.Component {
           rangeMap(-radius, radius + 1, v =>
             rangeMap(-radius, radius + 1, u =>
               <Square
-                key={[u, v]}
+                key={u * (2 * radius + 1) + v}
                 x={u}
                 y={v}
                 biome={plane.get(x + u, y + v)}
-                click={() => translate(u, v)}
+                click={translate}
               />
             )
           )
