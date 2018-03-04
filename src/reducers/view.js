@@ -16,5 +16,5 @@ const updaters = {
 export default (state=INITIAL_VIEW, action) => {
   const {type} = action;
   const updater = updaters[type];
-  return updater ? Object.assign({}, state, updater(state, action)) : state;
+  return updater ? {...state, ...updater(state, action)} : state;
 }
