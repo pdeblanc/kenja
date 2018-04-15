@@ -26,3 +26,6 @@ export const soranzoEpurePpf = α => c1 * Math.log(
 );
 
 export const soranzoEpureSample = compose(soranzoEpurePpf, uniform);
+
+// placeholder implementation
+export const poisson = (λ, seedStr, seedInt) => λ;
