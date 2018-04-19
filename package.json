@@ -1,5 +1,5 @@
 {
-  "name": "world-simulator",
+  "name": "kenja",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/pdeblanc/world-simulator.git"
+    "url": "git+ssh://git@github.com:pdeblanc/kenja.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/pdeblanc/world-simulator#readme",
+  "homepage": "https://github.com/pdeblanc/kenja",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
