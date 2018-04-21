@@ -7,7 +7,8 @@
     "test": "jest",
     "dev": "webpack-dev-server",
     "webpack": "webpack",
-    "benchmark": "babel-node src/scripts/benchmark.js"
+    "benchmark": "babel-node src/scripts/benchmark.js",
+    "repl": "babel-node"
   },
   "repository": {
     "type": "git",
@@ -35,11 +36,14 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "@aureooms/js-bisect": "^3.0.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "hash.js": "^1.1.3",
     "map2": "^1.0.2",
     "md5": "^2.2.1",
+    "murmurhash": "0.0.2",
     "prop-types": "^15.6.0",
+    "randgen": "^0.1.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2"
   }
