@@ -24,7 +24,8 @@ class Viewport extends React.Component {
                 key={u * (2 * radius + 1) + v}
                 x={u}
                 y={v}
-                biome={plane.get(x + u, y + v)}
+                biome={plane.biome.get(x + u, y + v)}
+                sku={plane.sku.get(x + u, y + v)}
                 click={translate}
               />
             )

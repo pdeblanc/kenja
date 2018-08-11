@@ -6,11 +6,12 @@ import './styles/main.scss';
 
 import ViewportContainer from './components/viewport_container';
 import biomes from './defs/biomes';
+import skus from './defs/skus';
 import Plane from './world/plane';
 import {handleKeyPress} from './keys';
 import store from './store';
 
-const plane = new Plane(biomes);
+const plane = new Plane(biomes, skus);
 
 render(
   <Provider store={store}>

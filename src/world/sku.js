@@ -1,4 +1,4 @@
-export default class Biome {
+export default class Sku {
   constructor(name, symbol, energy) {
     this.name = name;
     this.symbol = symbol;

@@ -1,57 +1,14 @@
-.biome {
-  user-select: none;
-  cursor: pointer;
-  font-size: 1px;
-  text {
-    text-anchor: middle;
-  }
-  &:hover rect {
-    stroke: white;
-    stroke-width: 0.04;
-  }
-}
+rect.grass { fill: darkgreen; }
+text.grass { fill: green; }
 
-.grass {
-  rect {
-    fill: darkgreen;
-  }
-  text {
-    fill: green;
-  }
-}
+rect.water { fill: darkblue; }
+text.water { fill: blue; }
 
-.water {
-  rect {
-    fill: darkblue;
-  }
-  text {
-    fill: blue;
-  }
-}
+rect.sand { fill: orange; }
+text.sand { fill: yellow; }
 
-.sand {
-  rect {
-    fill: orange;
-  }
-  text {
-    fill: yellow;
-  }
-}
+rect.wall { fill: gray; }
+text.wall { fill: silver; }
 
-.wall {
-  rect {
-    fill: gray;
-  }
-  text {
-    fill: silver;
-  }
-}
-
-.woods {
-  rect {
-    fill: #003000;
-  }
-  text {
-    fill: #005000;
-  }
-}
+rect.woods { fill: #003000; }
+text.woods { fill: #005000; }

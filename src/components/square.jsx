@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 class Square extends React.Component {
   render() {
-    const {x, y, biome, click} = this.props;
+    const {x, y, biome, click, sku} = this.props;
+    const biomeClass = biome.cssClass();
     return (
       <svg
-        className={'biome ' + biome.name}
+        className={'map-square'}
         x={x - 0.5}
         y={y - 0.5}
         width="1px"
@@ -14,8 +15,12 @@ class Square extends React.Component {
         viewBox="-0.5 -0.5 1 1"
         onClick={() => click(x, y)}
       >
-        <rect x="-0.5" y="-0.5" width="1" height="1" />
-        <text y="0.37">{biome.symbol}</text>
+        <rect className={biomeClass} x="-0.5" y="-0.5" width="1" height="1" />
+        {
+          sku
+          ? <text className={sku.cssClass()} y="0.37">{sku.symbol}</text>
+          : <text className={biomeClass} y="0.37">{biome.symbol}</text>
+        }
       </svg>
     );
   }
@@ -34,6 +39,7 @@ Square.propTypes = {
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired,
   biome: PropTypes.object.isRequired,
+  sku: PropTypes.object.isRequired,
   click: PropTypes.func.isRequired,
 }
 
