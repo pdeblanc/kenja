@@ -26,11 +26,12 @@ class Square extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const {x, y, biome} = this.props;
+    const {x, y, biome, sku} = this.props;
     return (
       nextProps.x !== x
       || nextProps.y !== y
       || nextProps.biome !== biome
+      || nextProps.sku !== sku
     );
   }
 }
