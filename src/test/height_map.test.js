@@ -1,7 +1,7 @@
 import HeightMap from '../world/height_map';
 import {rangeMap, sum} from '../util/array';
 
-test('has variance 1 at origin', () => {
+xtest('has variance 1 at origin', () => {
   const sample = rangeMap(0, 10000, seedInt =>
     new HeightMap({seedInt}).get(0, 0)
   );
