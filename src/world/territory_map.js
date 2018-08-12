@@ -38,9 +38,10 @@ class Block {
   }
 
   generate() {
-    const {discCount, sideLength} = this;
+    const {discCount, generateDiscs, sideLength} = this;
     if (sideLength === 1 || discCount < SUBDIVIDE_THRESHOLD) {
-      this.generateDiscs(discCount);
+      generateDiscs(discCount);
+      this.subBlocks = [];
     }
     else {
       const pSmall = (
@@ -48,7 +49,39 @@ class Block {
         radiusDistribution.cdf(sideLength)
       );
       const smallDiscCount = binomial(discCount, pSmall);
+      if (smallDiscCount >= SUBDIVIDE_THRESHOLD) {
+        generateDiscs(discCount - smallDiscCount);
+        generateSubBlocks(smallDiscCount);
+      }
     }
+    this.generated = true;
+  }
+
+  generateSubBlocks(discCount) {
+    const {left, top, radiusDistribution, generateDisc} = this;
+    const sideLength = this.sideLength / 2;
+    const sharedParams = {sideLength, radiusDistribution, generateDisc};
+    const count12 = binomial(smalldiscCount, 1/2);
+    const count34 = smallDiscCount - count12;
+    const count1 = binomial(count12, 1/2);
+    const count2 = count12 - count1;
+    const count3 = binomial(count34, 1/2);
+    const count4 = count34 - count3;
+    this.subBlocks = [
+      new Block({left, top, discCount: count1, ...sharedParams}),
+      new Block(
+        {left: left + sideLength, top, discCount: count2, ...sharedParams}
+      ),
+      new Block(
+        {left, top: top + sideLength, discCount: count3, ...sharedParams}
+      ),
+      new Block({
+        left: left + sideLength,
+        top: top + sideLength,
+        discCount: count4,
+        ...sharedParams
+      }),
+    ];
   }
 
   distanceToPoint({x, y}) {
