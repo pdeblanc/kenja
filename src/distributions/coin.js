@@ -2,6 +2,12 @@ import Map2 from 'map2';
 
 const cachesByP = {};
 
+export const clearAll = () => {
+  for (const key in cachesByP) {
+    delete cachesByP[key];
+  }
+};
+
 export class CoinCache {
   constructor(p) {
     this.depth = 0;
@@ -51,7 +57,7 @@ export class CoinCache {
       return p0;
     }
     this.fromLeft(n, k - 1);
-    const pk = pmf.get(n, k - 1) * (n - k + 1) / k * p / (p - 1);
+    const pk = pmf.get(n, k - 1) * (n - k + 1) / k * p / (1 - p);
     pmf.set(n, k, pk);
     const ck = pk + cdf.get(n, k - 1);
     cdf.set(n, k, ck);
@@ -69,7 +75,7 @@ export class CoinCache {
       return 1;
     }
     this.fromRight(n, k + 1);
-    pmf.set(n, k, pmf.get(n, k + 1) * (k + 1) / (n - k) * (p - 1) / p);
+    pmf.set(n, k, pmf.get(n, k + 1) * (k + 1) / (n - k) * (1 - p) / p);
     const ck = cdf.get(n, k + 1) - pmf.get(n, k + 1);
     cdf.set(n, k, ck);
     return ck;
